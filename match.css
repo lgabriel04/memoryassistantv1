@@ -1,0 +1,48 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto auto;
+    gap: 10px;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.item {
+    background-color: #f0c040;
+    padding: 20px;
+    text-align: center;
+    border: 1px solid #ccc;
+}
+
+.item:nth-child(1),
+.item:nth-child(2),
+.item:nth-child(3) {
+    grid-column: span 1; /* Each of the first three items spans one column */
+}
+
+.item:nth-child(4),
+.item:nth-child(5) {
+    grid-column: span 2; /* Each of the last two items spans two columns */
+    justify-self: center; /* Center the last two items */
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Stack items in one column on small screens */
+    }
+
+    .item {
+        grid-column: span 1; /* Each item spans one column */
+    }
+}
